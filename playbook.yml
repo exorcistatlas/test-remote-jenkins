@@ -1,0 +1,12 @@
+---
+- name: Test playbook
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: "Shell echo"
+      shell: echo "Hello Jenkins"
+      register: echo_result
+    - name: "Show result from echo"
+      debug:
+        msg: "{{ echo_result.stdout_lines }}"
